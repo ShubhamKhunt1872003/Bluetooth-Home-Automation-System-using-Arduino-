@@ -1,0 +1,60 @@
+you need to take some precautions while setting up this system
+...
+
+1) settung up new bluetooth module
+
+when you buy new module HC-05 bluetooth
+then you have to set up its basic details via At comamnds
+you can find some tutorials on the YouTube
+stuff like name , password, reset, all that things should be set and then after follow next set up.
+
+setting up after AT process:
+
+1 ) according to connection diagram after connectiong it and before uploading the code to arduino
+you need to temporarily break the connection between bluetooth module and arduino (because we have connected RX->TX , TX->RX [arduino-bluetooth]) according to connection diagram so that it won't let communicate arduino to USB TTL converter , in short.....you can't communicate with arduino while it's
+RX and TX are busy with bluetooth..
+
+solution:
+
+1 method : 
+
+just remove the RX and TX pin(of bluetooth) temporarily  and upload the code and after successfull upload you just need to reconnect them in order to make communication between arduino and bluetooth
+
+2 method :   just upload the code to arduino before making the connection according to diagram
+
+
+3) just cut the power to bluetooth by simply removing its VCC(5V) pin (TEMPORARILY) and upload the code and connect that VCC 5V pin AGAIN to bluetooth.
+
+
+also :
+
+here is application link  we have used ...(for android only)
+
+https://play.google.com/store/apps/details?id=com.appsvalley.bluetooth.arduinocontroller
+
+also image of application is there in the folder outside this file
+
+setting up : applications
+
+step 1: install that from playstore
+step 2 : after making proper and connection and successfully upoading code
+            turn on bluetooth and connect it to you bluetooth module signal
+	 in my case it was "winter and stark".
+step 3 : open that app and refresh and you will se pop up (connected) after that
+	you have to configure button for ON-OFF command
+	 just goto button section and long press any button to configure it 
+	 just set ON command and OFF command so whenever you press the button it will                autmatically send  that configured button command for on and off te components
+	 please take a note that you must have to set command which is used in source code you                  write..
+
+	for e.g.
+	FOR TURING  FAN ON you have written 'F' in arduino source code
+	then you must set 'F' as ON button command in APPlication
+
+               FOR TURING  FAN OFF you have written 'G' in arduino source code
+	then you must set 'G' as OFF button command in APPlication
+
+step 4:
+	 you are ready just operate the diffrent components by bluetooth
+
+
+TIPS: - in case some components can't be operated by bluetooth then please we advise to use external power to each components in out case also that was problem... bu we have managed all that by giving external power to bluetooth and relay components.
